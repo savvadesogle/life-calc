@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Philipp Ponurovskiy">
+
+    <title>90 лет жизни</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Cormorant+Garamond:400,400" rel="stylesheet">
+
+	<style type="text/css">
+		body{
+			font-family: 'Alegreya Sans', sans-serif;
+		}
+		blockquote{
+			font-family: 'Cormorant Garamond', serif;
+		}
+	</style>
+
+  </head>
+
+  <body>
+
+
+
+      <div class="container">
+        <h2 class="text-center text-uppercase  m-5">Калькулятор жизни</h2>
+        <blockquote class="blockquote blockquote-reverse">
+        	<p class="text-center">Пламя угасло, и он глядел в окно на звезды.</p>
+        </blockquote>
+        <hr class="star-dark mb-5">
+        <div class="row text-center">
+        	<div class="col-md-3">
+        	</div>
+        	<div class="col-md-6">
+        		<div class="form-group">
+        			<label for="years">Укажи свой возраст:
+				  	<input type="text" class="form-control" id="years"></label>
+					<button class="btn btn-success">Показать</button>
+					 
+				</div>
+			</div>
+        	<div class="col-md-3">
+        	</div>
+	        
+    	</div>
+        <div class="row text-center">
+        	<div class="col-lg-3 ">
+        	</div>
+        	<div class="col-lg-6 ">
+        		<h2>Прожито 25 лет из 90</h2>
+        		<div id="inserthere">
+        		</div>
+        		<div class="mt-5">
+	        		<p><button class=" btn  btn-circle btn-success" id="btn-success" ></button> прожито
+	        		<button class=" btn  btn-circle btn-outline-secondary" id="btn-outline-secondary" ></button> осталось
+	        		<button class=" btn btn-circle btn-outline-warning" id="btn-outline-warning" ></button> критический возраст</p>
+	        	</div>
+        	</div>
+        	<div class="col-lg-3 ">
+        	</div>
+        </div>
+      </div>
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    	glob_n = 0;
+    	cloneAndCopy('btn-success' ,  25);
+    	cloneAndCopy('btn-outline-secondary' , 50);
+    	cloneAndCopy('btn-outline-warning' , 15);
+    	function cloneAndCopy(nodeId,  n)
+			{
+				for (var i = 1; i <= n; i++) {
+					addNode(nodeId, n);
+					glob_n ++;
+					if(glob_n%10 == 0){
+						br = document.createElement("br");
+						document.getElementById('inserthere').appendChild(br);
+					}
+					 
+					
+				}
+			}
+			function addNode (nodeId){
+				var toClone = document.getElementById(nodeId);
+				var clonedNode = toClone.cloneNode(false);
+				clonedNode.className = ('btn btn-circle '+nodeId);
+				clonedNode.id = '';
+				console.log(nodeId);
+				var insertPoint = document.getElementById('inserthere');
+				insertPoint.appendChild(clonedNode);
+				}
+		function howOld()	{
+			green = document.getElementById('years').value;
+			console.log('green = ' + green);
+			grey = 90 - green;
+			console.log('grey = ' + grey);
+			warning = (90-green);
+			console.log('warning = ' + warning);
+			if (  warning < 15){
+				danger = 'danger';
+				document.getElementById('btn-outline-warning').className = 'btn-outline-danger btn btn-circle';
+				
+			}
+			else{
+				danger = 'warning';
+			}
+
+		}
+
+    </script>
+    <script type="text/javascript">
+$(document).ready(function(){
+ $.fn.fade = function (ops) {
+  var $elem = this;
+  var res = $.extend({ delay: 30, speed: 10 }, ops);
+  for (var i=0, pause=0, l=$elem.length; i<l; i++, pause+=res.delay) {
+   $elem.eq(i).delay(pause).fadeIn(res.speed);
+  }
+  return $elem;
+ };
+ $('.btn').fade();
+});
+</script>
+    <style type="text/css">
+.btn{display: none;}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  margin: 2px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+    </style>
+
+ 
+
+  </body>
+
+</html>
